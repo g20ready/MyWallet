@@ -12,19 +12,11 @@
 		373313492690426600253DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373313482690426600253DB2 /* Assets.xcassets */; };
 		3733134C2690426600253DB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3733134B2690426600253DB2 /* Preview Assets.xcassets */; };
 		373313572690426700253DB2 /* MyWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373313562690426700253DB2 /* MyWalletTests.swift */; };
-		373313622690426700253DB2 /* MyWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373313612690426700253DB2 /* MyWalletUITests.swift */; };
 		373313712690434600253DB2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 373313702690434600253DB2 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		373313532690426600253DB2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 373313392690426500253DB2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 373313402690426500253DB2;
-			remoteInfo = MyWallet;
-		};
-		3733135E2690426700253DB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 373313392690426500253DB2 /* Project object */;
 			proxyType = 1;
@@ -43,7 +35,6 @@
 		373313522690426600253DB2 /* MyWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		373313562690426700253DB2 /* MyWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalletTests.swift; sourceTree = "<group>"; };
 		373313582690426700253DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3733135D2690426700253DB2 /* MyWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		373313612690426700253DB2 /* MyWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalletUITests.swift; sourceTree = "<group>"; };
 		373313632690426700253DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,13 +49,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3733134F2690426600253DB2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3733135A2690426700253DB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,7 +73,6 @@
 			children = (
 				373313412690426500253DB2 /* MyWallet.app */,
 				373313522690426600253DB2 /* MyWalletTests.xctest */,
-				3733135D2690426700253DB2 /* MyWalletUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,24 +156,6 @@
 			productReference = 373313522690426600253DB2 /* MyWalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3733135C2690426700253DB2 /* MyWalletUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3733136C2690426700253DB2 /* Build configuration list for PBXNativeTarget "MyWalletUITests" */;
-			buildPhases = (
-				373313592690426700253DB2 /* Sources */,
-				3733135A2690426700253DB2 /* Frameworks */,
-				3733135B2690426700253DB2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3733135F2690426700253DB2 /* PBXTargetDependency */,
-			);
-			name = MyWalletUITests;
-			productName = MyWalletUITests;
-			productReference = 3733135D2690426700253DB2 /* MyWalletUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,10 +169,6 @@
 						CreatedOnToolsVersion = 12.5.1;
 					};
 					373313512690426600253DB2 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 373313402690426500253DB2;
-					};
-					3733135C2690426700253DB2 = {
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 373313402690426500253DB2;
 					};
@@ -231,7 +192,6 @@
 			targets = (
 				373313402690426500253DB2 /* MyWallet */,
 				373313512690426600253DB2 /* MyWalletTests */,
-				3733135C2690426700253DB2 /* MyWalletUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,13 +207,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		373313502690426600253DB2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3733135B2690426700253DB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,14 +233,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		373313592690426700253DB2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				373313622690426700253DB2 /* MyWalletUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -295,11 +240,6 @@
 			isa = PBXTargetDependency;
 			target = 373313402690426500253DB2 /* MyWallet */;
 			targetProxy = 373313532690426600253DB2 /* PBXContainerItemProxy */;
-		};
-		3733135F2690426700253DB2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 373313402690426500253DB2 /* MyWallet */;
-			targetProxy = 3733135E2690426700253DB2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -508,46 +448,6 @@
 			};
 			name = Release;
 		};
-		3733136D2690426700253DB2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7FGAFC5ZWR;
-				INFOPLIST_FILE = MyWalletUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gr.marseltzatzo.MyWalletUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyWallet;
-			};
-			name = Debug;
-		};
-		3733136E2690426700253DB2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7FGAFC5ZWR;
-				INFOPLIST_FILE = MyWalletUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gr.marseltzatzo.MyWalletUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyWallet;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -574,15 +474,6 @@
 			buildConfigurations = (
 				3733136A2690426700253DB2 /* Debug */,
 				3733136B2690426700253DB2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3733136C2690426700253DB2 /* Build configuration list for PBXNativeTarget "MyWalletUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3733136D2690426700253DB2 /* Debug */,
-				3733136E2690426700253DB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

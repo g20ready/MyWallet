@@ -17,60 +17,79 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
+  
+  project = "MyWallet.xcodeproj"
+
+  lane :test do |options|
+    scheme = options[:scheme]
+    
+    scan(project: project,
+         scheme: scheme,
+         configuration: options[:configuration],
+         code_coverage: true,
+         clean: true,
+         reset_simulator: true)
+  end
 
   lane :build do
-    project = "MyWallet.xcodeproj"
+    # project = "MyWallet.xcodeproj"
     keychain_name = "MyWallet"
     app_target_bundle_identifier = "gr.marseltzatzo.MyWallet"
 
+    # Connect to app store api
     app_store_connect_api_key
 
+    # Delete keychain cre
     delete_keychain(name: "MyWallet") if File.exist? File.expand_path("~/Library/Keychains/#{keychain_name}-db")
 
-    create_keychain(
-      name: keychain_name,
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true
-    )
+    # Create new keychain
+    create_keychain(name: keychain_name,
+                    default_keychain: true,
+                    unlock: true,
+                    timeout: 3600,
+                    lock_when_sleeps: true)
 
+    # Sync repo certificates with the keychain
     match(
-      keychain_name: keychain_name
+      keychain_name: keychain_name,
+      readonly: true
     )
 
     app_target_profile_name = ENV["sigh_gr.marseltzatzo.MyWallet_appstore_profile-name"]
 
-    update_code_signing_settings(
-        use_automatic_signing: false,
-        targets: "MyWallet",
-        profile_name: app_target_profile_name,
-        code_sign_identity: ENV['APP_STORE_CERT_NAME'],
-        path: project
+    # Set manual signing method & update code signing properties for out target
+    # If multiple targets then we have to repeat for each target with its identifier
+    update_code_signing_settings(use_automatic_signing: false,
+                                 targets: "MyWallet",
+                                 profile_name: app_target_profile_name,
+                                 code_sign_identity: ENV['APP_STORE_CERT_NAME'],
+                                 path: project
     )
 
-    gym(
-      project: project,
-      silent: true,                             
-      clean: true,                             
-      export_method: "app-store",
-      export_options: {
-        provisioningProfiles: { 
-          app_target_bundle_identifier => app_target_profile_name
-        }
-      },
-      output_directory: '.archives',
-      output_name: 'MyWallet-AppStore.ipa',
-      xcargs: "OTHER_CODE_SIGN_FLAGS=--keychain=\"/Users/Shared/Library/Keychains/MyWallet-db\""
-    )
+    output_directory = '.archives'
+    output_name = 'MyWallet-AppStore.ipa'
+    output_file_path = "#{output_directory}/#{output_name}"
+
+    # Build our executable
+    gym(project: project,
+        silent: true,                             
+        clean: true,                             
+        export_method: "app-store",
+        export_options: {
+          provisioningProfiles: { 
+            app_target_bundle_identifier => app_target_profile_name
+          }
+        },
+        output_directory: output_directory,
+        output_name: output_name,
+        xcargs: "OTHER_CODE_SIGN_FLAGS=--keychain=\"/Users/Shared/Library/Keychains/MyWallet-db\"")
     
-    pilot(
-      app_platform: 'ios',
-      ipa: ".archives/MyWallet-AppStore.ipa",
-      skip_submission: true,
-      skip_waiting_for_build_processing: true,
-      reject_build_waiting_for_review: true
-    )
+    # Upload to app store
+    pilot(app_platform: 'ios',
+          ipa: output_file_path,
+          skip_submission: true,
+          skip_waiting_for_build_processing: true,
+          reject_build_waiting_for_review: true)
 
   end
 
