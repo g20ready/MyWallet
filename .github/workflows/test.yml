@@ -34,7 +34,7 @@ jobs:
         run: bundle exec fastlane test
 
       - name: Publish Scan Report
-        uses: mikepenz/action-junit-report@v2
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
         if: always()
         with:
-          report_paths: '.scan_result/*.junit'
+          files: '.scan_result/*.junit'
