@@ -40,7 +40,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build
-        run: bundle exec fastlane build
+        run: bundle exec fastlane build --verbose
         env:
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64 }}
