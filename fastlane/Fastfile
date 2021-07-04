@@ -21,6 +21,7 @@ platform :ios do
   lane :build do
     project = "MyWallet.xcodeproj"
     keychain_name = "MyWallet"
+    app_target_bundle_identifier = "gr.marseltzatzo.MyWallet"
 
     app_store_connect_api_key
 
@@ -38,8 +39,14 @@ platform :ios do
       keychain_name: keychain_name
     )
 
-    disable_automatic_code_signing(
-      path: project
+    app_target_profile_name = ENV["sigh_gr.marseltzatzo.MyWallet_appstore_profile-name"]
+
+    update_code_signing_settings(
+        use_automatic_signing: false,
+        targets: "MyWallet",
+        profile_name: app_target_profile_name,
+        code_sign_identity: ENV['APP_STORE_CERT_NAME'],
+        path: project
     )
 
     gym(
@@ -49,7 +56,7 @@ platform :ios do
       export_method: "app-store",
       export_options: {
         provisioningProfiles: { 
-          "gr.marseltzatzo.MyWallet" => ENV["sigh_gr.marseltzatzo.MyWallet_appstore_profile-name"]
+          app_target_bundle_identifier => app_target_profile_name
         }
       },
       output_directory: '.archives',
