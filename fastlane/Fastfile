@@ -22,7 +22,6 @@ platform :ios do
 
   lane :test do |options|
     scan(project: project,
-         scheme: scheme,
          code_coverage: true,
          clean: true,
          skip_build: options[:skip_build] ||= false,
