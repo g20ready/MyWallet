@@ -36,4 +36,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build
-        run: ls
+        run: bundle exec fastlane build
