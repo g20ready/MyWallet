@@ -19,9 +19,25 @@ platform :ios do
   desc "Description of what the lane does"
 
   lane :build do
-    app_store_connect_api_key
-    match
     project = "MyWallet.xcodeproj"
+    keychain_name = "MyWallet"
+
+    app_store_connect_api_key
+
+    delete_keychain(name: "MyWallet") if File.exist? File.expand_path("~/Library/Keychains/#{keychain_name}-db")
+
+    create_keychain(
+      name: keychain_name,
+      default_keychain: false,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
+
+    match(
+      keychain_name: keychain_name
+    )
+
     gym(
       project: project,
       silent: true,                             
@@ -35,6 +51,7 @@ platform :ios do
       output_directory: '.archives',
       output_name: 'MyWallet-AppStore.ipa'
     )
+    
     pilot(
       app_platform: 'ios',
       ipa: ".archives/MyWallet-AppStore.ipa",
@@ -42,6 +59,7 @@ platform :ios do
       skip_waiting_for_build_processing: true,
       reject_build_waiting_for_review: true
     )
+
   end
 
 end
