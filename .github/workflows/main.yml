@@ -35,5 +35,5 @@ jobs:
           bundler-cache: true
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: bundle exec fastlane build
+      - name: Build
+        run: ls
