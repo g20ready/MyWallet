@@ -28,6 +28,7 @@ platform :ios do
          configuration: options[:configuration],
          code_coverage: true,
          clean: true,
+         output_directory: ".scan_result",
          reset_simulator: true)
   end
 

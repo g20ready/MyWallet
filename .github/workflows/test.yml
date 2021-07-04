@@ -32,3 +32,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run tests
         run: bundle exec fastlane test
+
+      - name: Publish Scan Report
+        uses: mikepenz/action-junit-report@v2
+        with:
+          report_paths: '.scan_result/*.junit'
