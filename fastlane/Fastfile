@@ -49,7 +49,8 @@ platform :ios do
         }
       },
       output_directory: '.archives',
-      output_name: 'MyWallet-AppStore.ipa'
+      output_name: 'MyWallet-AppStore.ipa',
+      xcargs: "OTHER_CODE_SIGN_FLAGS=--keychain=\"/Users/Shared/Library/Keychains/MyWallet-db\""
     )
     
     pilot(
