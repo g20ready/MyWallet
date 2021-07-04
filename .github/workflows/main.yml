@@ -31,7 +31,7 @@ jobs:
       - name: Setup - Ruby and bundler dependencies
         uses: ruby/setup-ruby@v1.57.0
         with:
-          ruby-version: 2.7.3
+          ruby-version: 2.7.2
           bundler-cache: true
 
       # Runs a single command using the runners shell
