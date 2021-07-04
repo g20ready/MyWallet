@@ -35,5 +35,6 @@ jobs:
 
       - name: Publish Scan Report
         uses: mikepenz/action-junit-report@v2
+        if: always()
         with:
           report_paths: '.scan_result/*.junit'
