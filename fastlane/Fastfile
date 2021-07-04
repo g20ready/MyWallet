@@ -19,6 +19,7 @@ platform :ios do
   desc "Description of what the lane does"
 
   lane :build do
+    app_store_connect_api_key
     match
     project = "MyWallet.xcodeproj"
     gym(
