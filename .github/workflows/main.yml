@@ -37,4 +37,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build
         run: bundle exec fastlane build
+        env:
+          MATCH_GIT_PRIVATE_KEY: ${{ secrets.MATCH_GIT_PRIVATE_KEY }}
         
