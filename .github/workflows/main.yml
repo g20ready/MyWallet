@@ -34,8 +34,7 @@ jobs:
           ruby-version: 2.7.2
           bundler-cache: true
 
-      - name: Setup ssh private key
-        uses: webfactory/ssh-agent@v0.5.3
+      - uses: webfactory/ssh-agent@v0.5.3
           with:
             ssh-private-key: ${{ secrets.CERTS_SSH_PRIVATE_KEY }}
 
