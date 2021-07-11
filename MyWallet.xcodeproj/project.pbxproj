@@ -12,7 +12,7 @@
 		373313492690426600253DB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373313482690426600253DB2 /* Assets.xcassets */; };
 		3733134C2690426600253DB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3733134B2690426600253DB2 /* Preview Assets.xcassets */; };
 		373313572690426700253DB2 /* MyWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373313562690426700253DB2 /* MyWalletTests.swift */; };
-		373313712690434600253DB2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 373313702690434600253DB2 /* Alamofire */; };
+		373313712690434600253DB2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 373313702690434600253DB2 /* SwiftPackageProductDependency */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373313712690434600253DB2 /* Alamofire in Frameworks */,
+				373313712690434600253DB2 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			);
 			name = MyWallet;
 			packageProductDependencies = (
-				373313702690434600253DB2 /* Alamofire */,
+				373313702690434600253DB2 /* SwiftPackageProductDependency */,
 			);
 			productName = MyWallet;
 			productReference = 373313412690426500253DB2 /* MyWallet.app */;
@@ -184,7 +184,7 @@
 			);
 			mainGroup = 373313382690426500253DB2;
 			packageReferences = (
-				3733136F2690434600253DB2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3733136F2690434600253DB2 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 373313422690426500253DB2 /* Products */;
 			projectDirPath = "";
@@ -365,7 +365,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Marsel Xhaxho (7FGAFC5ZWR)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWallet/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FGAFC5ZWR;
 				ENABLE_PREVIEWS = YES;
@@ -377,6 +379,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gr.marseltzatzo.MyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore gr.marseltzatzo.MyWallet";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -387,7 +390,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Marsel Xhaxho (7FGAFC5ZWR)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWallet/Preview Content\"";
 				DEVELOPMENT_TEAM = 7FGAFC5ZWR;
 				ENABLE_PREVIEWS = YES;
@@ -399,6 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gr.marseltzatzo.MyWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore gr.marseltzatzo.MyWallet";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -481,7 +487,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3733136F2690434600253DB2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		3733136F2690434600253DB2 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -492,9 +498,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		373313702690434600253DB2 /* Alamofire */ = {
+		373313702690434600253DB2 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3733136F2690434600253DB2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 3733136F2690434600253DB2 /* RemoteSwiftPackageReference */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
