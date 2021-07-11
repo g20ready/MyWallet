@@ -18,21 +18,15 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
   
-  project = "MyWallet.xcodeproj"
-
   lane :test do |options|
-    scheme = options[:scheme]
-    
-    scan(project: project,
-         scheme: scheme,
-         configuration: options[:configuration],
-         code_coverage: true,
+    scan(code_coverage: true,
          clean: true,
+         skip_build: options[:skip_build] ||= false,
+         output_directory: ".scan_result",
          reset_simulator: true)
   end
 
   lane :build do
-    # project = "MyWallet.xcodeproj"
     keychain_name = "MyWallet"
     app_target_bundle_identifier = "gr.marseltzatzo.MyWallet"
 
@@ -81,9 +75,10 @@ platform :ios do
           }
         },
         output_directory: output_directory,
-        output_name: output_name,
-        xcargs: "OTHER_CODE_SIGN_FLAGS=--keychain=\"/Users/Shared/Library/Keychains/MyWallet-db\"")
+        output_name: output_name)
     
+    test(skip_build: true)
+
     # Upload to app store
     pilot(app_platform: 'ios',
           ipa: output_file_path,

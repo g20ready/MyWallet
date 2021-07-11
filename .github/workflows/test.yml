@@ -30,5 +30,11 @@ jobs:
           bundler-cache: true
 
       # Runs a single command using the runners shell
-      - name: Build
+      - name: Run tests
         run: bundle exec fastlane test
+
+      - name: Publish Scan Report
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
+        with:
+          files: '.scan_result/*.junit'
