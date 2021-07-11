@@ -80,7 +80,6 @@ platform :ios do
         },
         output_directory: output_directory,
         output_name: output_name,
-        xcargs: "OTHER_CODE_SIGN_FLAGS=--keychain=\"/Users/Shared/Library/Keychains/MyWallet-db\"")
     
     test(skip_build: true)
 
