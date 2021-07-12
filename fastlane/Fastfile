@@ -31,9 +31,6 @@ platform :ios do
     keychain_name = "MyWallet"
     app_target_bundle_identifier = "gr.marseltzatzo.MyWallet"
 
-    # Connect to app store api
-    app_store_connect_api_key
-
     # Delete keychain cre
     delete_keychain(name: "MyWallet") if File.exist? File.expand_path("~/Library/Keychains/#{keychain_name}-db")
 
@@ -80,6 +77,9 @@ platform :ios do
         xcargs: "OTHER_CODE_SIGN_FLAGS=--keychain=\"/Users/Shared/Library/Keychains/MyWallet-db\"")
     
     test(skip_build: true)
+
+    # Connect to app store api
+    app_store_connect_api_key
 
     # Upload to app store
     pilot(app_platform: 'ios',

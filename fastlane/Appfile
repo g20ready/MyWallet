@@ -1,1 +1,1 @@
-app_identifier("gr.marseltzatzo.MyWallet") # The bundle identifier of your app
+app_identifier("gr.marseltzatzo.MyWallet")
