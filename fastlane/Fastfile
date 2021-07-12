@@ -27,7 +27,7 @@ platform :ios do
   end
 
   lane :build do
-    # project = "MyWallet.xcodeproj"
+    project = "MyWallet.xcodeproj"
     keychain_name = "MyWallet"
     app_target_bundle_identifier = "gr.marseltzatzo.MyWallet"
 
